@@ -9,7 +9,7 @@ A tool to automate the JBMC workflow and generate counter examples from Java cod
 ```bash
 # Clone the repository
 git clone https://github.com/MueezNadeem/JBMC_CounterExampleGenerator.git
-cd jbmc-workflow
+cd JBMC_CounterExampleGenerator
 
 # Make the main script executable
 chmod +x jbmc_workflow.py
@@ -20,7 +20,7 @@ chmod +x jbmc_workflow.py
 ```bash
 # Clone the repository
 git clone https://github.com/MueezNadeem/JBMC_CounterExampleGenerator.git
-cd jbmc-workflow
+cd JBMC_CounterExampleGenerator
 
 # Install the package
 pip install -e .
