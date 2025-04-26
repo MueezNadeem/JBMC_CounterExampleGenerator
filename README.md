@@ -8,7 +8,7 @@ A tool to automate the JBMC workflow and generate counter examples from Java cod
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/MueezNadeem/JBMC_CounterExampleGenerator.git
 cd jbmc-workflow
 
 # Make the main script executable
