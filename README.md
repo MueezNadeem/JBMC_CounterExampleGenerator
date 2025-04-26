@@ -19,7 +19,7 @@ chmod +x jbmc_workflow.py
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/MueezNadeem/JBMC_CounterExampleGenerator.git
 cd jbmc-workflow
 
 # Install the package
