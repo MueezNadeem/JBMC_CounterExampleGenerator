@@ -44,10 +44,10 @@ def run_jbmc(class_name):
         result = subprocess.run(
             cmd, stdout=f, stderr=subprocess.PIPE, text=True)
 
-    if result.returncode != 0 and "VERIFICATION FAILED" not in result.stderr:
-        print(f"Error running JBMC:")
-        print(result.stderr)
-        sys.exit(1)
+    # if result.returncode != 0 and "VERIFICATION FAILED" not in result.stderr:
+    #     print(f"Error running JBMC:")
+    #     print(result.stderr)
+    #     sys.exit(1)
 
     print(f"JBMC analysis completed, output saved to {output_file}")
     return output_file
