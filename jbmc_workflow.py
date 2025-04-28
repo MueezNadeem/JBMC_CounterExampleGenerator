@@ -62,7 +62,7 @@ def main():
     args = parser.parse_args()
 
     # Extract class name from the Java file
-    class_name = os.path.splitext(os.path.basename(args.java_file))[0]
+    class_name = os.path.splitext(os.path.basename(args.java_file))[1]
 
     # Create output directory if it doesn't exist
     if not os.path.exists(args.output_dir):
@@ -72,6 +72,8 @@ def main():
     compile_java(args.java_file)
 
     # Step 2: Run JBMC
+    class_name = args.java_file.replace(".java", "")
+    print(class_name)
     json_file = run_jbmc(class_name)
 
     # Step 3: Process the JSON output
