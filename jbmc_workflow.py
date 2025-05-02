@@ -27,17 +27,18 @@ def compile_java(java_file):
     return True
 
 
-def run_jbmc(class_name):
+def run_jbmc(class_name, unwind_value):
     """Run JBMC on the given class and method."""
     output_file = "x.json"
-    print(f"Running JBMC on {class_name}.test...")
+    print(
+        f"Running JBMC on {class_name}.test with unwind value: {unwind_value}...")
 
     cmd = [
         'jbmc',
         f'{class_name}.test',
         '--drop-unused-functions',
         '--json-ui',
-        '--unwind', '20'
+        '--unwind', str(unwind_value)
     ]
 
     with open(output_file, 'w') as f:
@@ -59,6 +60,10 @@ def main():
     parser.add_argument('java_file', help='Input Java file to analyze')
     parser.add_argument('--output-dir', '-o', default='counter_examples',
                         help='Directory to store counter examples (default: counter_examples)')
+    parser.add_argument('--unwind', '-w', type=int, default=20,
+                        help='Unwind value for JBMC (default: 20)')
+    # parser.add_argument('--unwind', '-u', type=int, default=20,
+    #                     help='Unwind value for JBMC (default: 20)')
     args = parser.parse_args()
 
     # Extract class name from the Java file
@@ -74,7 +79,7 @@ def main():
     # Step 2: Run JBMC
     class_name = args.java_file.replace(".java", "")
     print(class_name)
-    json_file = run_jbmc(class_name)
+    json_file = run_jbmc(class_name, args.unwind)
 
     # Step 3: Process the JSON output
     temp_json = json_processor.process_json(json_file)
